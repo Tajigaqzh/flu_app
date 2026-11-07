@@ -4,88 +4,101 @@ import 'package:flu_app/pages/profile/components/profile_left_detail_drawer_vip_
 import 'package:material_ui/material_ui.dart';
 
 import '../../../common/iconfont_icons.dart';
+import '../profile_event.dart';
 
 /// Profile 页面的左侧抽屉内容。
 class ProfileLeftDetailDrawerComponent extends StatelessWidget {
-  const ProfileLeftDetailDrawerComponent({
-    super.key,
-    required this.onVoicePressed,
-    required this.onScanPressed,
-  });
+  const ProfileLeftDetailDrawerComponent({super.key, required this.onPressed});
 
-  final VoidCallback onScanPressed;
-  final VoidCallback onVoicePressed;
+  final ProfileDrawerPressed onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       width: 320,
       backgroundColor: Color(0xFFF2F6FA),
+
       child: SafeArea(
         child: Padding(
           padding: EdgeInsetsGeometry.symmetric(horizontal: 15),
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        IconfontIcons.avatar,
-                        size: 32,
-                        color: Color(0xffffffff),
-                      ),
-                      SizedBox(width: 10),
-                      Text("毛毛qzh"),
-                      Transform.rotate(
-                        angle: math.pi,
-                        child: Icon(Icons.arrow_back_ios_rounded, size: 12),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      IconButton(
-                        onPressed: onVoicePressed,
-                        tooltip: '语音',
-                        padding: EdgeInsets.all(0),
-                        style: const ButtonStyle(
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          child: SizedBox.expand(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          IconfontIcons.avatar,
+                          size: 32,
+                          color: Color(0xffffffff),
                         ),
-                        icon: const Icon(IconfontIcons.voice, size: 20),
-                        constraints: BoxConstraints(
-                          maxWidth: 24,
-                          minWidth: 24,
-                          maxHeight: 24,
-                          minHeight: 24,
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      IconButton(
-                        onPressed: onScanPressed,
-                        tooltip: '扫描',
-                        padding: EdgeInsets.all(0),
-                        style: const ButtonStyle(
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        ),
-                        icon: const Icon(IconfontIcons.scan, size: 20),
-                        constraints: BoxConstraints(
-                          maxWidth: 24,
-                          minWidth: 24,
-                          maxHeight: 24,
-                          minHeight: 24,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                        SizedBox(width: 10),
 
-              const ProfileLeftDetailDrawerVipCard(),
-            ],
+                        Text("毛毛qzh"),
+                        Transform.rotate(
+                          angle: math.pi,
+                          child: Icon(Icons.arrow_back_ios_rounded, size: 12),
+                        ),
+                      ],
+                    ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          onPressed: () => onPressed(
+                            eventKey: ProfileDrawerEventKey.recognize,
+                          ),
+                          tooltip: '语音',
+                          padding: EdgeInsets.all(0),
+                          style: const ButtonStyle(
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
+
+                          icon: const Icon(IconfontIcons.voice, size: 20),
+                          constraints: BoxConstraints(
+                            maxWidth: 24,
+                            minWidth: 24,
+                            maxHeight: 24,
+                            minHeight: 24,
+                          ),
+                        ),
+
+                        SizedBox(width: 10),
+                        IconButton(
+                          onPressed: () =>
+                              onPressed(eventKey: ProfileDrawerEventKey.scan),
+                          tooltip: '扫描',
+                          padding: EdgeInsets.all(0),
+                          style: const ButtonStyle(
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
+                          icon: const Icon(IconfontIcons.scan, size: 20),
+                          constraints: BoxConstraints(
+                            maxWidth: 24,
+                            minWidth: 24,
+                            maxHeight: 24,
+                            minHeight: 24,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: 6),
+                Expanded(
+                  child: ListView(
+                    padding: EdgeInsets.zero,
+                    children: [
+                      ProfileLeftDetailDrawerVipCard(onPressed: onPressed),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -96,8 +109,7 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
 /// 在根导航层打开抽屉，使其覆盖底部玻璃导航。
 Future<void> showProfileLeftDetailDrawer(
   BuildContext context, {
-  required VoidCallback onVoicePressed,
-  required VoidCallback onScanPressed,
+  required ProfileDrawerPressed onPressed,
 }) {
   return showGeneralDialog<void>(
     context: context,
@@ -108,10 +120,7 @@ Future<void> showProfileLeftDetailDrawer(
     transitionDuration: const Duration(milliseconds: 220),
     pageBuilder: (context, animation, secondaryAnimation) => Align(
       alignment: Alignment.centerLeft,
-      child: ProfileLeftDetailDrawerComponent(
-        onVoicePressed: onVoicePressed,
-        onScanPressed: onScanPressed,
-      ),
+      child: ProfileLeftDetailDrawerComponent(onPressed: onPressed),
     ),
     transitionBuilder: (context, animation, secondaryAnimation, child) {
       final offset = Tween<Offset>(

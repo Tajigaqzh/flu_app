@@ -5,6 +5,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flu_app/pages/profile/components/profile_left_detail_drawer.dart';
 import 'package:flu_app/pages/profile/components/profile_left_detail_drawer_vip_card.dart';
 import 'package:flu_app/pages/profile/profile_page.dart';
+import 'package:flu_app/pages/profile/profile_event.dart';
 
 void main() {
   testWidgets('profile drawer covers bottom navigation', (tester) async {
@@ -27,7 +28,7 @@ void main() {
     expect(find.byType(ProfileLeftDetailDrawerComponent), findsOneWidget);
     expect(
       tester.getSize(find.byType(ProfileLeftDetailDrawerVipCard)),
-      const Size(290, 170),
+      const Size(290, 120),
     );
 
     final voiceButton = find.byWidgetPredicate(
@@ -48,6 +49,31 @@ void main() {
 
     expect(navigationTaps, 0);
     expect(find.byType(ProfileLeftDetailDrawerComponent), findsNothing);
+  });
+
+  testWidgets('VIP actions invoke start VIP callback', (tester) async {
+    final eventKeys = <String>[];
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: Center(
+            child: ProfileLeftDetailDrawerVipCard(
+              onPressed: ({required eventKey, eventParams}) {
+                eventKeys.add(eventKey);
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('去打卡'));
+    await tester.tap(find.text('续费'));
+
+    expect(eventKeys, [
+      ProfileDrawerEventKey.startVip,
+      ProfileDrawerEventKey.startVip,
+    ]);
   });
 
   testWidgets('voice action opens recognize route', (tester) async {

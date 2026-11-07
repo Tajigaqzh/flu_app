@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import 'components/profile_header.dart';
 import 'components/profile_left_detail_drawer.dart';
+import 'profile_event.dart';
 import '../../widgets/tab_placeholder.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -16,17 +17,17 @@ class ProfilePage extends StatelessWidget {
           // 打开左侧个人信息详情抽屉
           onOpenLeftDetailDrawer: () => showProfileLeftDetailDrawer(
             context,
-            // 点击语音识别
-            onVoicePressed: () {
-              // 关闭当前抽屉
-              Navigator.of(context, rootNavigator: true).pop();
-              context.push("/profile/recognize");
-            },
-            // 点击扫码
-            onScanPressed: () {
-              // 关闭当前抽屉
-              Navigator.of(context, rootNavigator: true).pop();
-              context.push('/profile/scan');
+            onPressed: ({required eventKey, eventParams}) {
+              switch (eventKey) {
+                case ProfileDrawerEventKey.recognize:
+                  Navigator.of(context, rootNavigator: true).pop();
+                  context.push('/profile/recognize', extra: eventParams);
+                case ProfileDrawerEventKey.scan:
+                  Navigator.of(context, rootNavigator: true).pop();
+                  context.push('/profile/scan', extra: eventParams);
+                case ProfileDrawerEventKey.startVip:
+                  break;
+              }
             },
           ),
         ),

@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:flu_app/pages/profile/components/profile_left_detail_drawer_item_card.dart';
 import 'package:flu_app/pages/profile/components/profile_left_detail_drawer_vip_card.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -15,7 +16,7 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      width: 320,
+      width: 315,
       backgroundColor: Color(0xFFF2F6FA),
 
       child: SafeArea(
@@ -94,6 +95,9 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
                     padding: EdgeInsets.zero,
                     children: [
                       ProfileLeftDetailDrawerVipCard(onPressed: onPressed),
+                      SizedBox(height: 16),
+
+                      ProfileLeftDetailDrawerItemCard(onPressed: onPressed),
                     ],
                   ),
                 ),

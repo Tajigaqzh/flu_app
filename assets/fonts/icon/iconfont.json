@@ -1,0 +1,58 @@
+{
+  "id": "5251146",
+  "name": "flutter",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "162869",
+      "name": "扫码",
+      "font_class": "iconfontscan",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "29522559",
+      "name": "6A话筒",
+      "font_class": "a-6Ahuatong",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "1904067",
+      "name": "头像 男孩",
+      "font_class": "icon-test",
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    },
+    {
+      "icon_id": "4940289",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "eaa2",
+      "unicode_decimal": 60066
+    },
+    {
+      "icon_id": "6756281",
+      "name": "加号",
+      "font_class": "jiahao",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "7596588",
+      "name": "24gf-ellipsisVertical",
+      "font_class": "24gf-ellipsisVertical",
+      "unicode": "eb10",
+      "unicode_decimal": 60176
+    },
+    {
+      "icon_id": "17868589",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    }
+  ]
+}

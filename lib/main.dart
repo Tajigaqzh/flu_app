@@ -1,9 +1,8 @@
 import 'package:liquid_glass_widgets/liquid_glass_widgets.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'services/app_notification_service.dart';
-import 'router/app_router.dart';
+import 'package:flu_app/router/app_router.dart';
+import 'package:flu_app/services/app_notification_service.dart';
 
 Future<void> main() async {
   // 初始化玻璃效果

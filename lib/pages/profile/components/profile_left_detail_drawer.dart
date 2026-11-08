@@ -4,8 +4,8 @@ import 'package:flu_app/pages/profile/components/profile_left_detail_drawer_item
 import 'package:flu_app/pages/profile/components/profile_left_detail_drawer_vip_card.dart';
 import 'package:material_ui/material_ui.dart';
 
-import '../../../common/iconfont_icons.dart';
-import '../profile_event.dart';
+import 'package:flu_app/common/iconfont_icons.dart';
+import 'package:flu_app/pages/profile/profile_event.dart';
 
 /// Profile 页面的左侧抽屉内容。
 class ProfileLeftDetailDrawerComponent extends StatelessWidget {
@@ -24,7 +24,7 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
         context: context,
         removeTop: true,
         child: Padding(
-          padding: EdgeInsets.only(top: topInset * 0.75),
+          padding: EdgeInsets.only(top: topInset * 0.9),
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsetsGeometry.symmetric(horizontal: 15),
@@ -99,13 +99,13 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 6),
+                    const SizedBox(height: 8),
                     Expanded(
                       child: ListView(
                         padding: EdgeInsets.zero,
                         children: [
                           ProfileLeftDetailDrawerVipCard(onPressed: onPressed),
-                          const SizedBox(height: 16),
+                          const SizedBox(height: 20),
 
                           ProfileLeftDetailDrawerItemCard(onPressed: onPressed),
                         ],

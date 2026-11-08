@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
 
 /// 通用导航栏：中间标题相对屏幕居中，左侧返回按钮，右侧内容可自定义。
@@ -62,7 +63,7 @@ class CustomWidgetWithNavigateBar extends StatelessWidget {
         padding: const EdgeInsets.all(12),
         child: Icon(
           Icons.arrow_back_ios_rounded,
-          size: 20,
+          size: 24,
           color: isDark ? Colors.black : Colors.white,
         ),
       ),
@@ -99,7 +100,7 @@ class CustomWidgetWithNavigateBar extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: FontWeight.w500,
                     color: isDark ? Colors.black : Colors.white,
                   ),
@@ -130,13 +131,24 @@ class CustomWidgetWithNavigateBar extends StatelessWidget {
               ],
             )
           : Column(
-              children: [navigationBar, Expanded(child: child)],
+              children: [
+                navigationBar,
+                Expanded(child: child),
+              ],
             ),
     );
 
-    if (backgroundColor == null) {
-      return barContent;
-    }
-    return ColoredBox(color: backgroundColor!, child: barContent);
+    final content = backgroundColor == null
+        ? barContent
+        : ColoredBox(color: backgroundColor!, child: barContent);
+
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarIconBrightness: isDark ? Brightness.dark : Brightness.light,
+        statusBarBrightness: isDark ? Brightness.light : Brightness.dark,
+        statusBarColor: backgroundColor ?? Colors.transparent,
+      ),
+      child: content,
+    );
   }
 }

@@ -28,7 +28,7 @@ void main() {
     expect(find.byType(ProfileLeftDetailDrawerComponent), findsOneWidget);
     expect(
       tester.getSize(find.byType(ProfileLeftDetailDrawerVipCard)),
-      const Size(290, 120),
+      const Size(285, 130),
     );
 
     final voiceButton = find.byWidgetPredicate(

@@ -1,10 +1,9 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
-
-import 'components/profile_header.dart';
-import 'components/profile_left_detail_drawer.dart';
-import 'profile_event.dart';
-import '../../widgets/tab_placeholder.dart';
+import 'package:flu_app/pages/profile/components/profile_header.dart';
+import 'package:flu_app/pages/profile/components/profile_left_detail_drawer.dart';
+import 'package:flu_app/pages/profile/profile_event.dart';
+import 'package:flu_app/widgets/tab_placeholder.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

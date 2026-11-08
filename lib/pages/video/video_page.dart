@@ -1,6 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 
-import '../../widgets/tab_placeholder.dart';
+import 'package:flu_app/widgets/tab_placeholder.dart';
 
 class VideoPage extends StatelessWidget {
   const VideoPage({super.key});

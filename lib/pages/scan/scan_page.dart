@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-import '../../widgets/navigate_bar.dart';
+import 'package:flu_app/widgets/navigate_bar.dart';
 
 class ScanPage extends StatefulWidget {
   const ScanPage({super.key});

@@ -22,5 +22,6 @@ void main() {
       tester.getSize(previewRow).width,
     );
     expect(tester.takeException(), isNull);
+    await tester.pump(const Duration(seconds: 1));
   });
 }

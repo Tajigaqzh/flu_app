@@ -1,10 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:easy_refresh/easy_refresh.dart';
-import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
-
-import '../../../../widgets/navigate_bar.dart';
+import 'package:flu_app/widgets/navigate_bar.dart';
 
 class MessagePage extends StatefulWidget {
   const MessagePage({super.key});
@@ -16,70 +14,62 @@ class MessagePage extends StatefulWidget {
 class _MessagePageState extends State<MessagePage> {
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: const SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.dark,
-        statusBarBrightness: Brightness.light,
-        statusBarColor: Colors.white,
-      ),
-
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: CustomWidgetWithNavigateBar(
-          title: "我的消息",
-          trailing: [
-            GestureDetector(
-              child: const Icon(Icons.search, size: 24),
-              onTap: () {},
-            ),
-            const SizedBox(width: 10),
-            const Icon(Icons.cleaning_services_rounded, size: 19),
-          ],
-          child: EasyRefresh(
-            header: const ClassicHeader(
-              dragText: '下拉刷新',
-              armedText: '下拉刷新',
-              readyText: '松开刷新',
-              processingText: '刷新中...',
-              processedText: '刷新完成',
-              noMoreText: '没有更多了',
-              failedText: '刷新失败',
-              // 关闭「上次更新 %T」那一行。
-              showMessage: false,
-              backgroundColor: Colors.white,
-            ),
-            // 下拉刷新
-            onRefresh: () async {
-              await Future.delayed(const Duration(seconds: 1));
-              setState(() {});
-            },
-            child: ListView(
-              children: const [
-                _MessageActionItem(mainTitle: "新增粉丝", subTitle: "没有新通知"),
-                _MessageActionItem(mainTitle: "评论和@提及", subTitle: "没有新通知"),
-                _MessageActionItem(mainTitle: "赞和通知", subTitle: "没有新通知"),
-                _MessageItem(tipsNum: 5),
-                _MessageItem(),
-                _MessageItem(tipsNum: 11),
-                _MessageItem(),
-                _MessageItem(tipsNum: 8),
-                _MessageItem(),
-                _MessageItem(),
-                _MessageItem(),
-                _MessageItem(),
-                _MessageItem(),
-                _MessageItem(),
-                _MessageItem(),
-                _MessageItem(),
-                _MessageItem(),
-                _MessageItem(),
-                _MessageItem(),
-                _MessageItem(),
-                _MessageItem(),
-                _MessageItem(),
-                _MessageItem(),
-              ],
-            ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: CustomWidgetWithNavigateBar(
+        title: "我的消息",
+        trailing: [
+          GestureDetector(
+            child: const Icon(Icons.search, size: 25),
+            onTap: () {},
+          ),
+          const SizedBox(width: 10),
+          const Icon(Icons.cleaning_services_rounded, size: 22),
+        ],
+        child: EasyRefresh(
+          header: const ClassicHeader(
+            dragText: '下拉刷新',
+            armedText: '下拉刷新',
+            readyText: '松开刷新',
+            processingText: '刷新中...',
+            processedText: '刷新完成',
+            noMoreText: '没有更多了',
+            failedText: '刷新失败',
+            // 关闭「上次更新 %T」那一行。
+            showMessage: false,
+            backgroundColor: Colors.white,
+          ),
+          // 下拉刷新
+          onRefresh: () async {
+            await Future.delayed(const Duration(seconds: 1));
+            setState(() {});
+          },
+          child: ListView(
+            children: const [
+              _MessageActionItem(mainTitle: "新增粉丝", subTitle: "没有新通知"),
+              _MessageActionItem(mainTitle: "评论和@提及", subTitle: "没有新通知"),
+              _MessageActionItem(mainTitle: "赞和通知", subTitle: "没有新通知"),
+              _MessageItem(tipsNum: 5),
+              _MessageItem(),
+              _MessageItem(tipsNum: 11),
+              _MessageItem(),
+              _MessageItem(tipsNum: 8),
+              _MessageItem(),
+              _MessageItem(),
+              _MessageItem(),
+              _MessageItem(),
+              _MessageItem(),
+              _MessageItem(),
+              _MessageItem(),
+              _MessageItem(),
+              _MessageItem(),
+              _MessageItem(),
+              _MessageItem(),
+              _MessageItem(),
+              _MessageItem(),
+              _MessageItem(),
+              _MessageItem(),
+            ],
           ),
         ),
       ),
@@ -113,7 +103,10 @@ class _MessageItem extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("倩影啊", style: TextStyle(fontWeight: FontWeight.w500)),
+                    const Text(
+                      "倩影啊",
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    ),
                     Text(
                       "11月5日",
                       style: TextStyle(
@@ -201,7 +194,10 @@ class _MessageActionItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(mainTitle, style: const TextStyle(fontWeight: FontWeight.w500)),
+                Text(
+                  mainTitle,
+                  style: const TextStyle(fontWeight: FontWeight.w500),
+                ),
                 Text(
                   subTitle,
                   maxLines: 1,

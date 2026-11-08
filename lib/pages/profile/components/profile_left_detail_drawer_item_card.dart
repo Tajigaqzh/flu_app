@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
-import '../../../common/iconfont_icons.dart';
-import '../profile_event.dart';
+import 'package:flu_app/common/iconfont_icons.dart';
+import 'package:flu_app/pages/profile/profile_event.dart';
 
 class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
   const ProfileLeftDetailDrawerItemCard({super.key, required this.onPressed});
@@ -169,7 +169,7 @@ class _DrawerSettingItemState extends State<_DrawerSettingItem> {
     if (widget.rightContent == _RightContent.button) {
       return 6;
     }
-    return 14;
+    return 16;
   }
 
   @override
@@ -277,7 +277,10 @@ class _DrawerSettingItemState extends State<_DrawerSettingItem> {
                 : const Color(0xffff0000),
             borderRadius: const BorderRadius.all(Radius.circular(12)),
           ),
-          padding: const EdgeInsetsGeometry.symmetric(horizontal: 8, vertical: 0),
+          padding: const EdgeInsetsGeometry.symmetric(
+            horizontal: 8,
+            vertical: 0,
+          ),
           child: Text(
             widget.rightText,
             style: const TextStyle(color: Colors.white, fontSize: 13),

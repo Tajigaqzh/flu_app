@@ -1,14 +1,14 @@
 import 'package:go_router/go_router.dart';
 
-import '../pages/home/home_page.dart';
-import '../pages/layout/layout.dart';
-import '../pages/launch/launch_page.dart';
-import '../pages/library/library_page.dart';
-import '../pages/profile/profile_page.dart';
-import '../pages/profile/subPage/message/message_page.dart';
-import '../pages/scan/scan_page.dart';
-import '../pages/video/video_page.dart';
-import '../pages/profile/subPage/recognize/recognize_page.dart';
+import 'package:flu_app/pages/home/home_page.dart';
+import 'package:flu_app/pages/layout/layout.dart';
+import 'package:flu_app/pages/launch/launch_page.dart';
+import 'package:flu_app/pages/library/library_page.dart';
+import 'package:flu_app/pages/profile/profile_page.dart';
+import 'package:flu_app/pages/profile/subPage/message/message_page.dart';
+import 'package:flu_app/pages/scan/scan_page.dart';
+import 'package:flu_app/pages/video/video_page.dart';
+import 'package:flu_app/pages/profile/subPage/recognize/recognize_page.dart';
 
 // 全应用统一的路由表，应用启动时先显示启动页。
 final appRouter = GoRouter(

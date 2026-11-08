@@ -1,7 +1,6 @@
 import 'package:material_ui/material_ui.dart';
-
-import '../../../common/iconfont_icons.dart';
-import '../../../components/action_icon.dart';
+import 'package:flu_app/components/action_icon.dart';
+import 'package:flu_app/common/iconfont_icons.dart';
 
 /// Profile 页面的顶部区域组件。
 /// 显示 Profile 页面的渐变顶部区域和快捷操作图标。

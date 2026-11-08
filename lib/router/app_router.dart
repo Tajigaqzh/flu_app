@@ -1,4 +1,3 @@
-
 import 'package:go_router/go_router.dart';
 
 import '../pages/home/home_page.dart';
@@ -6,6 +5,7 @@ import '../pages/layout/layout.dart';
 import '../pages/launch/launch_page.dart';
 import '../pages/library/library_page.dart';
 import '../pages/profile/profile_page.dart';
+import '../pages/profile/subPage/message/message_page.dart';
 import '../pages/scan/scan_page.dart';
 import '../pages/video/video_page.dart';
 import '../pages/profile/subPage/recognize/recognize_page.dart';
@@ -26,7 +26,10 @@ final appRouter = GoRouter(
       builder: (context, state) => const RecognizePage(),
     ),
 
-
+    GoRoute(
+      path: "/profile/message",
+      builder: (context, state) => const MessagePage(),
+    ),
 
     // 底部导航的状态路由壳：每个分支都有独立导航栈，切换 tab 时保留页面状态。
     StatefulShellRoute.indexedStack(

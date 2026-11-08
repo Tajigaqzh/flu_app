@@ -31,8 +31,14 @@ class ProfilePage extends StatelessWidget {
                 switch (eventKey) {
                   case ProfileDrawerEventKey.recognize:
                     context.push('/profile/recognize', extra: eventParams);
+                    break;
                   case ProfileDrawerEventKey.scan:
                     context.push('/profile/scan', extra: eventParams);
+                    break;
+
+                  case ProfileDrawerEventKey.myMessage:
+                    context.push("/profile/message");
+                    break;
                   case ProfileDrawerEventKey.startVip:
                     break;
                 }

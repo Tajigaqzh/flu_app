@@ -24,11 +24,6 @@ class _RecognizePageState extends State<RecognizePage> {
         backgroundColor: Colors.white,
         body: Column(
           children: [
-            // full-bleed 顶栏：背景铺到屏幕最顶，内容紧贴刘海。
-            const NavigateBar(
-              title: '识别',
-              backgroundColor: Colors.white,
-            ),
             Expanded(
               child: SafeArea(
                 top: false,

@@ -39,7 +39,7 @@ class ProfileHeaderComponent extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(IconfontIcons.add, color: Colors.white, size: 10),
+                  const Icon(IconfontIcons.add, color: Colors.white, size: 10),
                   Text(
                     statusText,
                     style: const TextStyle(color: Colors.white, fontSize: 12),
@@ -73,17 +73,17 @@ class ProfileHeaderComponent extends StatelessWidget {
 
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           IconfontIcons.moreVertical,
                           size: 20,
                           color: Colors.white,
                         ),
                         tooltip: '更多',
-                        padding: EdgeInsets.all(0),
+                        padding: const EdgeInsets.all(0),
                         style: const ButtonStyle(
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
-                        constraints: BoxConstraints(
+                        constraints: const BoxConstraints(
                           maxWidth: 30,
                           minWidth: 30,
                           maxHeight: 30,

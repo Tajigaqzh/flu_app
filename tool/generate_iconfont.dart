@@ -19,12 +19,12 @@ void main(List<String> arguments) {
   final outputPath = arguments.length > 1 ? arguments[1] : _outputPath;
   final source = jsonDecode(File(sourcePath).readAsStringSync());
   if (source is! Map<String, dynamic> || source['glyphs'] is! List) {
-    throw FormatException('Invalid iconfont JSON: expected a glyphs array.');
+    throw const FormatException('Invalid iconfont JSON: expected a glyphs array.');
   }
 
   final fontFamily = source['font_family'];
   if (fontFamily is! String || fontFamily.isEmpty) {
-    throw FormatException('Invalid iconfont JSON: font_family is missing.');
+    throw const FormatException('Invalid iconfont JSON: font_family is missing.');
   }
 
   final glyphs = source['glyphs'] as List<dynamic>;
@@ -33,13 +33,13 @@ void main(List<String> arguments) {
 
   for (final glyph in glyphs) {
     if (glyph is! Map<String, dynamic>) {
-      throw FormatException('Invalid iconfont JSON: glyph must be an object.');
+      throw const FormatException('Invalid iconfont JSON: glyph must be an object.');
     }
     final fontClass = glyph['font_class'];
     final title = glyph['name'];
     final unicode = glyph['unicode'];
     if (fontClass is! String || title is! String || unicode is! String) {
-      throw FormatException(
+      throw const FormatException(
         'Invalid iconfont JSON: each glyph needs name, font_class, and unicode.',
       );
     }

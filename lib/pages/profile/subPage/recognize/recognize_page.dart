@@ -1,7 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
 
-import '../../../../widgets/navigate_bar.dart';
 
 /// 识别页。
 class RecognizePage extends StatefulWidget {
@@ -14,8 +13,8 @@ class RecognizePage extends StatefulWidget {
 class _RecognizePageState extends State<RecognizePage> {
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: const SystemUiOverlayStyle(
+    return const AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.dark,
         statusBarBrightness: Brightness.light,
         statusBarColor: Colors.white,

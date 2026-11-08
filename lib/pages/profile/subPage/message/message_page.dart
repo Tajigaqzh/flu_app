@@ -54,7 +54,7 @@ class _MessagePageState extends State<MessagePage> {
               setState(() {});
             },
             child: ListView(
-              children: [
+              children: const [
                 _MessageActionItem(mainTitle: "新增粉丝", subTitle: "没有新通知"),
                 _MessageActionItem(mainTitle: "评论和@提及", subTitle: "没有新通知"),
                 _MessageActionItem(mainTitle: "赞和通知", subTitle: "没有新通知"),
@@ -95,14 +95,14 @@ class _MessageItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       child: Row(
         children: [
           Container(
             width: 40,
             height: 40,
-            margin: EdgeInsets.only(right: 10),
-            decoration: BoxDecoration(
+            margin: const EdgeInsets.only(right: 10),
+            decoration: const BoxDecoration(
               color: Colors.red,
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
@@ -113,7 +113,7 @@ class _MessageItem extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("倩影啊", style: TextStyle(fontWeight: FontWeight.w500)),
+                    const Text("倩影啊", style: TextStyle(fontWeight: FontWeight.w500)),
                     Text(
                       "11月5日",
                       style: TextStyle(
@@ -142,8 +142,8 @@ class _MessageItem extends StatelessWidget {
                         ? Container(
                             width: tipsNum > 10 ? 8 : 16,
                             height: tipsNum > 10 ? 8 : 16,
-                            margin: EdgeInsets.only(left: 8),
-                            decoration: BoxDecoration(
+                            margin: const EdgeInsets.only(left: 8),
+                            decoration: const BoxDecoration(
                               color: Colors.red,
                               borderRadius: BorderRadius.all(
                                 Radius.circular(10),
@@ -156,7 +156,7 @@ class _MessageItem extends StatelessWidget {
                                 : Text(
                                     tipsNum.toString(),
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       height: 1,
                                       fontSize: 10,
@@ -185,14 +185,14 @@ class _MessageActionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       child: Row(
         children: [
           Container(
             width: 40,
             height: 40,
-            margin: EdgeInsets.only(right: 10),
-            decoration: BoxDecoration(
+            margin: const EdgeInsets.only(right: 10),
+            decoration: const BoxDecoration(
               color: Colors.red,
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
@@ -201,7 +201,7 @@ class _MessageActionItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(mainTitle, style: TextStyle(fontWeight: FontWeight.w500)),
+                Text(mainTitle, style: const TextStyle(fontWeight: FontWeight.w500)),
                 Text(
                   subTitle,
                   maxLines: 1,

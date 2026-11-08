@@ -13,7 +13,7 @@ class ProfileLeftDetailDrawerVipCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
@@ -24,14 +24,14 @@ class ProfileLeftDetailDrawerVipCard extends StatelessWidget {
       width: double.infinity,
       height: 130,
       child: Padding(
-        padding: EdgeInsetsGeometry.all(15),
+        padding: const EdgeInsetsGeometry.all(15),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
-                Expanded(
+                const Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -60,16 +60,16 @@ class ProfileLeftDetailDrawerVipCard extends StatelessWidget {
                       onPressed: () =>
                           onPressed(eventKey: ProfileDrawerEventKey.startVip),
                       style: TextButton.styleFrom(
-                        backgroundColor: Color(0xffF4D99B),
-                        foregroundColor: Color(0xff51432E),
-                        minimumSize: Size(64, 28),
-                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        backgroundColor: const Color(0xffF4D99B),
+                        foregroundColor: const Color(0xff51432E),
+                        minimumSize: const Size(64, 28),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(14),
                         ),
                       ),
-                      child: Text('续费', style: TextStyle(fontSize: 12)),
+                      child: const Text('续费', style: TextStyle(fontSize: 12)),
                     ),
                   ],
                 ),
@@ -88,7 +88,7 @@ class ProfileLeftDetailDrawerVipCard extends StatelessWidget {
                         width: 16,
                         height: 16,
                       ),
-                      Text(
+                      const Text(
                         "每日打卡",
                         style: TextStyle(
                           fontSize: 12,
@@ -101,7 +101,7 @@ class ProfileLeftDetailDrawerVipCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "去打卡",
                         style: TextStyle(
                           fontSize: 12,
@@ -110,7 +110,7 @@ class ProfileLeftDetailDrawerVipCard extends StatelessWidget {
                       ),
                       Transform.rotate(
                         angle: math.pi,
-                        child: Icon(
+                        child: const Icon(
                           Icons.arrow_back_ios_new,
                           size: 12,
                           color: Color(0xffD8DEF6),

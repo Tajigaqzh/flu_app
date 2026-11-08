@@ -17,11 +17,11 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       width: 315,
-      backgroundColor: Color(0xFFF2F6FA),
+      backgroundColor: const Color(0xFFF2F6FA),
 
       child: SafeArea(
         child: Padding(
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 15),
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 15),
           child: SizedBox.expand(
             child: Column(
               children: [
@@ -31,17 +31,17 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(
+                        const Icon(
                           IconfontIcons.avatar,
                           size: 32,
                           color: Color(0xffffffff),
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
 
-                        Text("毛毛qzh"),
+                        const Text("毛毛qzh"),
                         Transform.rotate(
                           angle: math.pi,
-                          child: Icon(Icons.arrow_back_ios_rounded, size: 12),
+                          child: const Icon(Icons.arrow_back_ios_rounded, size: 12),
                         ),
                       ],
                     ),
@@ -54,13 +54,13 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
                             eventKey: ProfileDrawerEventKey.recognize,
                           ),
                           tooltip: '语音',
-                          padding: EdgeInsets.all(0),
+                          padding: const EdgeInsets.all(0),
                           style: const ButtonStyle(
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           ),
 
                           icon: const Icon(IconfontIcons.voice, size: 20),
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 24,
                             minWidth: 24,
                             maxHeight: 24,
@@ -68,17 +68,17 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
                           ),
                         ),
 
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         IconButton(
                           onPressed: () =>
                               onPressed(eventKey: ProfileDrawerEventKey.scan),
                           tooltip: '扫描',
-                          padding: EdgeInsets.all(0),
+                          padding: const EdgeInsets.all(0),
                           style: const ButtonStyle(
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           ),
                           icon: const Icon(IconfontIcons.scan, size: 20),
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 24,
                             minWidth: 24,
                             maxHeight: 24,
@@ -89,27 +89,27 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 6),
+                const SizedBox(height: 6),
                 Expanded(
                   child: ListView(
                     padding: EdgeInsets.zero,
                     children: [
                       ProfileLeftDetailDrawerVipCard(onPressed: onPressed),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
 
                       ProfileLeftDetailDrawerItemCard(onPressed: onPressed),
                     ],
                   ),
                 ),
 
-                SizedBox(height: 10),
-                SizedBox(
+                const SizedBox(height: 10),
+                const SizedBox(
                   width: double.infinity,
                   child: Row(
                     children: [
                       // 各占 46%（等腰），中间 gap 8%
                       _BottomActionItem(icon: Icons.settings, label: '设置'),
-                      const Expanded(flex: 8, child: SizedBox()),
+                      Expanded(flex: 8, child: SizedBox()),
                       _BottomActionItem(
                         icon: Icons.sports_esports_outlined,
                         label: '更多',

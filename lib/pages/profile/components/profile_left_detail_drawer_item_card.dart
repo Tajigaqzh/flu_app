@@ -12,12 +12,12 @@ class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // width: ,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(6)),
       ),
       child: Padding(
-        padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
+        padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
         child: Column(
           children: [
             _DrawerSettingItem(
@@ -185,7 +185,7 @@ class _DrawerSettingItemState extends State<_DrawerSettingItem> {
           width: double.infinity,
           padding: EdgeInsets.symmetric(vertical: getVerticalHeight()),
           decoration: widget.withBorder
-              ? BoxDecoration(
+              ? const BoxDecoration(
                   border: Border(
                     bottom: BorderSide(color: Color(0xffececec), width: 1),
                   ),
@@ -202,19 +202,19 @@ class _DrawerSettingItemState extends State<_DrawerSettingItem> {
                   Icon(
                     widget.leftIcon,
                     color: _pressed
-                        ? Color(0xff000000).withAlpha(100)
-                        : Color(0xff000000),
+                        ? const Color(0xff000000).withAlpha(100)
+                        : const Color(0xff000000),
                     size: 16,
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Text(
                     widget.leftText,
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                       color: _pressed
-                          ? Color(0xff000000).withAlpha(100)
-                          : Color(0xff000000),
+                          ? const Color(0xff000000).withAlpha(100)
+                          : const Color(0xff000000),
                     ),
                   ),
                 ],
@@ -233,26 +233,26 @@ class _DrawerSettingItemState extends State<_DrawerSettingItem> {
         return TextButton(
           onPressed: () {},
           style: ButtonStyle(
-            backgroundColor: WidgetStatePropertyAll(Color(0xffffffff)),
+            backgroundColor: const WidgetStatePropertyAll(Color(0xffffffff)),
             side: WidgetStatePropertyAll(
               BorderSide(
                 color: pressed
-                    ? Color(0xffff0000).withAlpha(100)
-                    : Color(0xffff0000),
+                    ? const Color(0xffff0000).withAlpha(100)
+                    : const Color(0xffff0000),
                 width: 1,
               ),
             ),
-            padding: WidgetStatePropertyAll(
+            padding: const WidgetStatePropertyAll(
               EdgeInsets.symmetric(vertical: 5, horizontal: 14),
             ),
-            minimumSize: WidgetStatePropertyAll(Size(0, 16)),
+            minimumSize: const WidgetStatePropertyAll(Size(0, 16)),
           ),
           child: Text(
             widget.rightText,
             style: TextStyle(
               color: pressed
-                  ? Color(0xffff0000).withAlpha(100)
-                  : Color(0xffff0000),
+                  ? const Color(0xffff0000).withAlpha(100)
+                  : const Color(0xffff0000),
             ),
           ),
         );
@@ -261,26 +261,26 @@ class _DrawerSettingItemState extends State<_DrawerSettingItem> {
           widget.rightText,
           style: TextStyle(
             color: pressed
-                ? Color(0xff858587).withAlpha(100)
-                : Color(0xff858587),
+                ? const Color(0xff858587).withAlpha(100)
+                : const Color(0xff858587),
             fontSize: 10,
           ),
         );
 
       case _RightContent.none:
-        return SizedBox();
+        return const SizedBox();
       case _RightContent.toolkit:
         return Container(
           decoration: BoxDecoration(
             color: pressed
-                ? Color(0xffff0000).withAlpha(100)
-                : Color(0xffff0000),
-            borderRadius: BorderRadius.all(Radius.circular(12)),
+                ? const Color(0xffff0000).withAlpha(100)
+                : const Color(0xffff0000),
+            borderRadius: const BorderRadius.all(Radius.circular(12)),
           ),
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 8, vertical: 0),
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 8, vertical: 0),
           child: Text(
             widget.rightText,
-            style: TextStyle(color: Colors.white, fontSize: 13),
+            style: const TextStyle(color: Colors.white, fontSize: 13),
           ),
         );
     }

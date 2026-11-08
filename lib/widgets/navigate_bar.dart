@@ -72,7 +72,7 @@ class CustomWidgetWithNavigateBar extends StatelessWidget {
         child: Row(mainAxisSize: MainAxisSize.min, children: widgets),
       );
     }
-    return SizedBox();
+    return const SizedBox();
   }
 
   @override

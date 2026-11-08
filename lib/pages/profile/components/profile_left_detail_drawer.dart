@@ -15,109 +15,121 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final topInset = MediaQuery.paddingOf(context).top;
     return Drawer(
       width: 315,
       backgroundColor: const Color(0xFFF2F6FA),
 
-      child: SafeArea(
+      child: MediaQuery.removePadding(
+        context: context,
+        removeTop: true,
         child: Padding(
-          padding: const EdgeInsetsGeometry.symmetric(horizontal: 15),
-          child: SizedBox.expand(
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          padding: EdgeInsets.only(top: topInset * 0.75),
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsetsGeometry.symmetric(horizontal: 15),
+              child: SizedBox.expand(
+                child: Column(
                   children: [
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Icon(
-                          IconfontIcons.avatar,
-                          size: 32,
-                          color: Color(0xffffffff),
-                        ),
-                        const SizedBox(width: 10),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              IconfontIcons.avatar,
+                              size: 32,
+                              color: Color(0xffffffff),
+                            ),
+                            const SizedBox(width: 10),
 
-                        const Text("毛毛qzh"),
-                        Transform.rotate(
-                          angle: math.pi,
-                          child: const Icon(Icons.arrow_back_ios_rounded, size: 12),
+                            const Text("毛毛qzh"),
+                            Transform.rotate(
+                              angle: math.pi,
+                              child: const Icon(
+                                Icons.arrow_back_ios_rounded,
+                                size: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                              onPressed: () => onPressed(
+                                eventKey: ProfileDrawerEventKey.recognize,
+                              ),
+                              tooltip: '语音',
+                              padding: const EdgeInsets.all(0),
+                              style: const ButtonStyle(
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
+
+                              icon: const Icon(IconfontIcons.voice, size: 20),
+                              constraints: const BoxConstraints(
+                                maxWidth: 24,
+                                minWidth: 24,
+                                maxHeight: 24,
+                                minHeight: 24,
+                              ),
+                            ),
+
+                            const SizedBox(width: 10),
+                            IconButton(
+                              onPressed: () => onPressed(
+                                eventKey: ProfileDrawerEventKey.scan,
+                              ),
+                              tooltip: '扫描',
+                              padding: const EdgeInsets.all(0),
+                              style: const ButtonStyle(
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
+                              icon: const Icon(IconfontIcons.scan, size: 20),
+                              constraints: const BoxConstraints(
+                                maxWidth: 24,
+                                minWidth: 24,
+                                maxHeight: 24,
+                                minHeight: 24,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
+                    const SizedBox(height: 6),
+                    Expanded(
+                      child: ListView(
+                        padding: EdgeInsets.zero,
+                        children: [
+                          ProfileLeftDetailDrawerVipCard(onPressed: onPressed),
+                          const SizedBox(height: 16),
 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(
-                          onPressed: () => onPressed(
-                            eventKey: ProfileDrawerEventKey.recognize,
-                          ),
-                          tooltip: '语音',
-                          padding: const EdgeInsets.all(0),
-                          style: const ButtonStyle(
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          ),
+                          ProfileLeftDetailDrawerItemCard(onPressed: onPressed),
+                        ],
+                      ),
+                    ),
 
-                          icon: const Icon(IconfontIcons.voice, size: 20),
-                          constraints: const BoxConstraints(
-                            maxWidth: 24,
-                            minWidth: 24,
-                            maxHeight: 24,
-                            minHeight: 24,
+                    const SizedBox(height: 10),
+                    const SizedBox(
+                      width: double.infinity,
+                      child: Row(
+                        children: [
+                          // 各占 46%（等腰），中间 gap 8%
+                          _BottomActionItem(icon: Icons.settings, label: '设置'),
+                          Expanded(flex: 8, child: SizedBox()),
+                          _BottomActionItem(
+                            icon: Icons.sports_esports_outlined,
+                            label: '更多',
                           ),
-                        ),
-
-                        const SizedBox(width: 10),
-                        IconButton(
-                          onPressed: () =>
-                              onPressed(eventKey: ProfileDrawerEventKey.scan),
-                          tooltip: '扫描',
-                          padding: const EdgeInsets.all(0),
-                          style: const ButtonStyle(
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          ),
-                          icon: const Icon(IconfontIcons.scan, size: 20),
-                          constraints: const BoxConstraints(
-                            maxWidth: 24,
-                            minWidth: 24,
-                            maxHeight: 24,
-                            minHeight: 24,
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 6),
-                Expanded(
-                  child: ListView(
-                    padding: EdgeInsets.zero,
-                    children: [
-                      ProfileLeftDetailDrawerVipCard(onPressed: onPressed),
-                      const SizedBox(height: 16),
-
-                      ProfileLeftDetailDrawerItemCard(onPressed: onPressed),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height: 10),
-                const SizedBox(
-                  width: double.infinity,
-                  child: Row(
-                    children: [
-                      // 各占 46%（等腰），中间 gap 8%
-                      _BottomActionItem(icon: Icons.settings, label: '设置'),
-                      Expanded(flex: 8, child: SizedBox()),
-                      _BottomActionItem(
-                        icon: Icons.sports_esports_outlined,
-                        label: '更多',
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),

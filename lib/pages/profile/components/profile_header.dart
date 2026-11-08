@@ -17,6 +17,7 @@ class ProfileHeaderComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final topInset = MediaQuery.paddingOf(context).top;
     return Container(
       height: 350,
       width: double.infinity,
@@ -28,10 +29,11 @@ class ProfileHeaderComponent extends StatelessWidget {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: SafeArea(
-        bottom: false,
+      child: MediaQuery.removePadding(
+        context: context,
+        removeTop: true,
         child: Padding(
-          padding: const EdgeInsets.all(0),
+          padding: EdgeInsets.only(top: topInset * 0.75),
           child: Stack(
             alignment: Alignment.center,
             children: [

@@ -15,6 +15,7 @@ class CustomWidgetWithNavigateBar extends StatelessWidget {
     this.isDark = true,
     this.backgroundColor,
     this.onBack,
+    this.overlayChild = false,
   });
 
   /// 标题文案。
@@ -29,6 +30,9 @@ class CustomWidgetWithNavigateBar extends StatelessWidget {
   /// 自定义返回事件。传了则返回键只调用它，不再执行内部 pop；
   /// 不传则走默认 Navigator.maybePop()。
   final VoidCallback? onBack;
+
+  /// Whether the child extends behind the navigation bar.
+  final bool overlayChild;
 
   /// 导航栏内容高度。
   final double height;
@@ -78,51 +82,56 @@ class CustomWidgetWithNavigateBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 有背景色时做 full-bleed：背景铺到屏幕最顶（含状态栏区域），
-    // 内容用 SafeArea 让出状态栏，因此第一行紧贴刘海；布局到顶部时不会有白边。
-    final barContent = SafeArea(
-      bottom: false,
-      child: Column(
-        children: [
-          SizedBox(
-            height: height,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                // 标题铺满整行并居中，不受左右内容宽度影响。
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 56),
-                    child: Text(
-                      title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: isDark ? Colors.black : Colors.white,
-                      ),
-                    ),
+    // 保留大部分顶部安全区，让栏内容避开刘海并保留 full-bleed 背景。
+    final topInset = MediaQuery.paddingOf(context).top;
+    final navigationBar = Padding(
+      padding: EdgeInsets.only(top: topInset * 0.75),
+      child: SizedBox(
+        height: height,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 56),
+                child: Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: isDark ? Colors.black : Colors.white,
                   ),
                 ),
-
-                // 左侧。
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: leading ?? _defaultLeading(context),
-                ),
-
-                // 右侧（默认不显示）。
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: _defaultTrail(trailing),
-                ),
-              ],
+              ),
             ),
-          ),
-
-          Expanded(child: child),
-        ],
+            Align(
+              alignment: Alignment.centerLeft,
+              child: leading ?? _defaultLeading(context),
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: _defaultTrail(trailing),
+            ),
+          ],
+        ),
       ),
+    );
+    final barContent = MediaQuery.removePadding(
+      context: context,
+      removeTop: true,
+      child: overlayChild
+          ? Stack(
+              fit: StackFit.expand,
+              children: [
+                child,
+                Positioned(top: 0, left: 0, right: 0, child: navigationBar),
+              ],
+            )
+          : Column(
+              children: [navigationBar, Expanded(child: child)],
+            ),
     );
 
     if (backgroundColor == null) {

@@ -2,10 +2,11 @@ import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 
 import 'package:flu_app/common/profile_event.dart';
+import 'package:flu_app/common/tabs.dart';
 import 'package:flu_app/widgets/left_detail_drawer/left_detail_drawer.dart';
 
-/// 在根导航层打开左侧详情抽屉，使其覆盖底部玻璃导航。
-Future<void> showLeftDetailDrawer(BuildContext context) {
+/// 在根导航器显示左侧详情抽屉，并统一处理抽屉内的导航操作。
+Future<void> showLeftDetailDrawer(BuildContext context, [AppTabEnum? appTab]) {
   var handled = false;
   void onPressed({required String eventKey, Map<String, Object>? eventParams}) {
     if (handled) return;

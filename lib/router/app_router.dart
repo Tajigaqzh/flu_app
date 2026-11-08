@@ -1,4 +1,4 @@
-import 'package:flu_app/pages/recognize/recognize_page.dart';
+
 import 'package:go_router/go_router.dart';
 
 import '../pages/home/home_page.dart';
@@ -8,6 +8,7 @@ import '../pages/library/library_page.dart';
 import '../pages/profile/profile_page.dart';
 import '../pages/scan/scan_page.dart';
 import '../pages/video/video_page.dart';
+import '../pages/profile/subPage/recognize/recognize_page.dart';
 
 // 全应用统一的路由表，应用启动时先显示启动页。
 final appRouter = GoRouter(
@@ -24,6 +25,9 @@ final appRouter = GoRouter(
       path: "/profile/recognize",
       builder: (context, state) => const RecognizePage(),
     ),
+
+
+
     // 底部导航的状态路由壳：每个分支都有独立导航栈，切换 tab 时保留页面状态。
     StatefulShellRoute.indexedStack(
       // 把当前导航壳交给主布局，由主布局绘制底部导航并切换分支。

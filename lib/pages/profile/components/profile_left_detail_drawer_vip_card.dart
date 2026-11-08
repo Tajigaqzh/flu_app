@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../profile_event.dart';
@@ -21,7 +22,7 @@ class ProfileLeftDetailDrawerVipCard extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(6)),
       ),
       width: double.infinity,
-      height: 120,
+      height: 130,
       child: Padding(
         padding: EdgeInsetsGeometry.all(15),
         child: Column(
@@ -82,7 +83,11 @@ class ProfileLeftDetailDrawerVipCard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.cloud_upload_rounded),
+                      SvgPicture.asset(
+                        'assets/images/svg/profile/clock.svg',
+                        width: 16,
+                        height: 16,
+                      ),
                       Text(
                         "每日打卡",
                         style: TextStyle(

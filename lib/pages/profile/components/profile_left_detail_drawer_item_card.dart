@@ -26,7 +26,9 @@ class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
               rightText: "一键开启",
               withBorder: true,
               rightContent: _RightContent.button,
-              onPressed: () {},
+              onPressed: () {
+                onPressed(eventKey: ProfileDrawerEventKey.tryVipMusic);
+              },
             ),
 
             _DrawerSettingItem(
@@ -34,7 +36,9 @@ class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
               leftText: "我的消息",
               rightText: "12",
               rightContent: _RightContent.toolkit,
-              onPressed: () {},
+              onPressed: () {
+                onPressed(eventKey: ProfileDrawerEventKey.myMessage);
+              },
             ),
 
             _DrawerSettingItem(
@@ -42,7 +46,9 @@ class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
               leftText: "我的云贝",
               rightText: "免费兑换黑胶VIP",
               rightContent: _RightContent.text,
-              onPressed: () {},
+              onPressed: () {
+                onPressed(eventKey: ProfileDrawerEventKey.myClaud);
+              },
             ),
 
             _DrawerSettingItem(
@@ -50,7 +56,9 @@ class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
               leftText: "装扮中心",
               rightText: "罗小黑装扮上新",
               rightContent: _RightContent.text,
-              onPressed: () {},
+              onPressed: () {
+                onPressed(eventKey: ProfileDrawerEventKey.skin);
+              },
             ),
             _DrawerSettingItem(
               leftIcon: IconfontIcons.ideaXiangfa,
@@ -58,7 +66,9 @@ class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
               leftText: "创作者中心",
               rightText: "",
               rightContent: _RightContent.none,
-              onPressed: () {},
+              onPressed: () {
+                onPressed(eventKey: ProfileDrawerEventKey.creator);
+              },
             ),
 
             _DrawerSettingItem(
@@ -66,7 +76,9 @@ class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
               leftText: "最近播放",
               rightText: "4台设备登录",
               rightContent: _RightContent.text,
-              onPressed: () {},
+              onPressed: () {
+                onPressed(eventKey: ProfileDrawerEventKey.recentPlay);
+              },
             ),
 
             _DrawerSettingItem(
@@ -75,7 +87,9 @@ class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
               rightText: "",
               withBorder: true,
               rightContent: _RightContent.none,
-              onPressed: () {},
+              onPressed: () {
+                onPressed(eventKey: ProfileDrawerEventKey.regularClosed);
+              },
             ),
 
             _DrawerSettingItem(
@@ -83,7 +97,9 @@ class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
               leftText: "商城",
               rightText: "",
               rightContent: _RightContent.none,
-              onPressed: () {},
+              onPressed: () {
+                onPressed(eventKey: ProfileDrawerEventKey.store);
+              },
             ),
 
             _DrawerSettingItem(
@@ -91,7 +107,9 @@ class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
               leftText: "云村有票",
               rightText: "",
               rightContent: _RightContent.none,
-              onPressed: () {},
+              onPressed: () {
+                onPressed(eventKey: ProfileDrawerEventKey.ticket);
+              },
             ),
 
             _DrawerSettingItem(
@@ -99,7 +117,9 @@ class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
               leftText: "云推歌",
               rightText: "",
               rightContent: _RightContent.none,
-              onPressed: () {},
+              onPressed: () {
+                onPressed(eventKey: ProfileDrawerEventKey.suggestionMusic);
+              },
             ),
 
             _DrawerSettingItem(
@@ -107,7 +127,9 @@ class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
               leftText: "我的客服",
               rightText: "",
               rightContent: _RightContent.none,
-              onPressed: () {},
+              onPressed: () {
+                onPressed(eventKey: ProfileDrawerEventKey.customerService);
+              },
             ),
           ],
         ),
@@ -143,6 +165,13 @@ class _DrawerSettingItem extends StatefulWidget {
 class _DrawerSettingItemState extends State<_DrawerSettingItem> {
   bool _pressed = false;
 
+  double getVerticalHeight() {
+    if (widget.rightContent == _RightContent.button) {
+      return 6;
+    }
+    return 14;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Listener(
@@ -154,7 +183,7 @@ class _DrawerSettingItemState extends State<_DrawerSettingItem> {
         onTap: widget.onPressed,
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 13),
+          padding: EdgeInsets.symmetric(vertical: getVerticalHeight()),
           decoration: widget.withBorder
               ? BoxDecoration(
                   border: Border(

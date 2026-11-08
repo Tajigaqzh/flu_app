@@ -40,6 +40,7 @@ dependencies:
   flutter_riverpod: ^3.4.3
   mobile_scanner: ^7.5.0
   flutter_local_notifications: ^23.0.0
+  flutter_svg: ^2.3.2
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +72,7 @@ flutter:
   assets:
     - assets/images/launch/5.jpg
     - assets/images/launch/1.png
+    - assets/images/svg/profile/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

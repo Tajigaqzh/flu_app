@@ -17,18 +17,27 @@ class ProfilePage extends StatelessWidget {
           // 打开左侧个人信息详情抽屉
           onOpenLeftDetailDrawer: () => showProfileLeftDetailDrawer(
             context,
-            onPressed: ({required eventKey, eventParams}) {
-              switch (eventKey) {
-                case ProfileDrawerEventKey.recognize:
-                  Navigator.of(context, rootNavigator: true).pop();
-                  context.push('/profile/recognize', extra: eventParams);
-                case ProfileDrawerEventKey.scan:
-                  Navigator.of(context, rootNavigator: true).pop();
-                  context.push('/profile/scan', extra: eventParams);
-                case ProfileDrawerEventKey.startVip:
-                  break;
-              }
-            },
+            // 每次打开抽屉时新建闭包，用 handled 保证一次打开内只触发一次，
+            // 防止快速连点时重复 pop + push（第二次 pop 会误关掉新页面）。
+            // 之前的普通写法也不会重复点，这里只是展示一下防重复写法
+            onPressed: () {
+              var handled = false;
+              return ({required eventKey, eventParams}) {
+                if (handled) return;
+                handled = true;
+
+                Navigator.of(context, rootNavigator: true).pop();
+
+                switch (eventKey) {
+                  case ProfileDrawerEventKey.recognize:
+                    context.push('/profile/recognize', extra: eventParams);
+                  case ProfileDrawerEventKey.scan:
+                    context.push('/profile/scan', extra: eventParams);
+                  case ProfileDrawerEventKey.startVip:
+                    break;
+                }
+              };
+            }(),
           ),
         ),
         const Expanded(

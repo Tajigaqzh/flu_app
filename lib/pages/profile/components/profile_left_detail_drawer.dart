@@ -101,6 +101,22 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
                     ],
                   ),
                 ),
+
+                SizedBox(height: 10),
+                SizedBox(
+                  width: double.infinity,
+                  child: Row(
+                    children: [
+                      // 各占 46%（等腰），中间 gap 8%
+                      _BottomActionItem(icon: Icons.settings, label: '设置'),
+                      const Expanded(flex: 8, child: SizedBox()),
+                      _BottomActionItem(
+                        icon: Icons.sports_esports_outlined,
+                        label: '更多',
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -134,4 +150,34 @@ Future<void> showProfileLeftDetailDrawer(
       return SlideTransition(position: offset, child: child);
     },
   );
+}
+
+/// 底部操作栏的单个按钮：占 46% 等宽，红底、高 38、图标+文字居中。
+class _BottomActionItem extends StatelessWidget {
+  const _BottomActionItem({required this.icon, required this.label});
+
+  final IconData icon;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 46,
+      child: Container(
+        height: 38,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon),
+            const SizedBox(width: 4),
+            Text(label, style: const TextStyle(fontWeight: FontWeight.w500)),
+          ],
+        ),
+      ),
+    );
+  }
 }

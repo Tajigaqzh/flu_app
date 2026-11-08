@@ -1,10 +1,10 @@
 import 'package:material_ui/material_ui.dart';
 
 import 'package:flu_app/common/iconfont_icons.dart';
-import 'package:flu_app/pages/profile/profile_event.dart';
+import 'package:flu_app/common/profile_event.dart';
 
-class ProfileLeftDetailDrawerItemCard extends StatelessWidget {
-  const ProfileLeftDetailDrawerItemCard({super.key, required this.onPressed});
+class LeftDetailDrawerItemCard extends StatelessWidget {
+  const LeftDetailDrawerItemCard({super.key, required this.onPressed});
 
   final ProfileDrawerPressed onPressed;
 

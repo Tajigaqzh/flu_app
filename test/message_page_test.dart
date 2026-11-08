@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 
-import 'package:flu_app/pages/profile/subPage/message/message_page.dart';
+import 'package:flu_app/pages/message/message_page.dart';
 
 void main() {
   testWidgets('message page lays out its scrollable content', (tester) async {

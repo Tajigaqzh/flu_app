@@ -41,6 +41,7 @@ class CustomWidgetWithNavigateBar extends StatelessWidget {
   /// 是否黑色
   final bool isDark;
 
+  // 子组件
   final Widget child;
 
   /// 顶栏背景色；默认透明。设置后背景会铺满到屏幕最顶（含状态栏区域），
@@ -119,6 +120,7 @@ class CustomWidgetWithNavigateBar extends StatelessWidget {
         ),
       ),
     );
+    // 顶部 inset 已由 navigationBar 手动处理；清掉传给后代的值，避免 child 再次避让。
     final barContent = MediaQuery.removePadding(
       context: context,
       removeTop: true,

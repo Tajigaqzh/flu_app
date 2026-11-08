@@ -3,10 +3,10 @@ import 'dart:math' as math;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_ui/material_ui.dart';
 
-import 'package:flu_app/pages/profile/profile_event.dart';
+import 'package:flu_app/common/profile_event.dart';
 
-class ProfileLeftDetailDrawerVipCard extends StatelessWidget {
-  const ProfileLeftDetailDrawerVipCard({super.key, required this.onPressed});
+class LeftDetailDrawerVipCard extends StatelessWidget {
+  const LeftDetailDrawerVipCard({super.key, required this.onPressed});
 
   final ProfileDrawerPressed onPressed;
 

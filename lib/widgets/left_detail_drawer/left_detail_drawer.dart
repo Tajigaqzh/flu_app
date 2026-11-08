@@ -1,15 +1,15 @@
 import 'dart:math' as math;
 
-import 'package:flu_app/pages/profile/components/profile_left_detail_drawer_item_card.dart';
-import 'package:flu_app/pages/profile/components/profile_left_detail_drawer_vip_card.dart';
+import 'package:flu_app/widgets/left_detail_drawer/components/left_detail_drawer_item_card.dart';
+import 'package:flu_app/widgets/left_detail_drawer/components/left_detail_drawer_vip_card.dart';
 import 'package:material_ui/material_ui.dart';
 
 import 'package:flu_app/common/iconfont_icons.dart';
-import 'package:flu_app/pages/profile/profile_event.dart';
+import 'package:flu_app/common/profile_event.dart';
 
 /// Profile 页面的左侧抽屉内容。
-class ProfileLeftDetailDrawerComponent extends StatelessWidget {
-  const ProfileLeftDetailDrawerComponent({super.key, required this.onPressed});
+class LeftDetailDrawer extends StatelessWidget {
+  const LeftDetailDrawer({super.key, required this.onPressed});
 
   final ProfileDrawerPressed onPressed;
 
@@ -104,25 +104,32 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
                       child: ListView(
                         padding: EdgeInsets.zero,
                         children: [
-                          ProfileLeftDetailDrawerVipCard(onPressed: onPressed),
+                          LeftDetailDrawerVipCard(onPressed: onPressed),
                           const SizedBox(height: 20),
-
-                          ProfileLeftDetailDrawerItemCard(onPressed: onPressed),
+                          LeftDetailDrawerItemCard(onPressed: onPressed),
                         ],
                       ),
                     ),
 
                     const SizedBox(height: 10),
-                    const SizedBox(
+                    SizedBox(
                       width: double.infinity,
                       child: Row(
                         children: [
                           // 各占 46%（等腰），中间 gap 8%
-                          _BottomActionItem(icon: Icons.settings, label: '设置'),
-                          Expanded(flex: 8, child: SizedBox()),
+                          _BottomActionItem(
+                            icon: Icons.settings,
+                            label: '设置',
+                            onPressed: () => onPressed(
+                              eventKey: ProfileDrawerEventKey.setting,
+                            ),
+                          ),
+                          const Expanded(flex: 8, child: SizedBox()),
                           _BottomActionItem(
                             icon: Icons.sports_esports_outlined,
                             label: '更多',
+                            onPressed: () =>
+                                onPressed(eventKey: ProfileDrawerEventKey.more),
                           ),
                         ],
                       ),
@@ -138,36 +145,15 @@ class ProfileLeftDetailDrawerComponent extends StatelessWidget {
   }
 }
 
-/// 在根导航层打开抽屉，使其覆盖底部玻璃导航。
-Future<void> showProfileLeftDetailDrawer(
-  BuildContext context, {
-  required ProfileDrawerPressed onPressed,
-}) {
-  return showGeneralDialog<void>(
-    context: context,
-    useRootNavigator: true,
-    barrierDismissible: true,
-    barrierLabel: '关闭抽屉',
-    barrierColor: Colors.black54,
-    transitionDuration: const Duration(milliseconds: 220),
-    pageBuilder: (context, animation, secondaryAnimation) => Align(
-      alignment: Alignment.centerLeft,
-      child: ProfileLeftDetailDrawerComponent(onPressed: onPressed),
-    ),
-    transitionBuilder: (context, animation, secondaryAnimation, child) {
-      final offset = Tween<Offset>(
-        begin: const Offset(-1, 0),
-        end: Offset.zero,
-      ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOutCubic));
-      return SlideTransition(position: offset, child: child);
-    },
-  );
-}
-
 /// 底部操作栏的单个按钮：占 46% 等宽，红底、高 38、图标+文字居中。
 class _BottomActionItem extends StatelessWidget {
-  const _BottomActionItem({required this.icon, required this.label});
+  const _BottomActionItem({
+    required this.icon,
+    required this.label,
+    required this.onPressed,
+  });
 
+  final VoidCallback onPressed;
   final IconData icon;
   final String label;
 
@@ -175,19 +161,22 @@ class _BottomActionItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: 46,
-      child: Container(
-        height: 38,
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(8)),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon),
-            const SizedBox(width: 4),
-            Text(label, style: const TextStyle(fontWeight: FontWeight.w500)),
-          ],
+      child: GestureDetector(
+        onTap: onPressed,
+        child: Container(
+          height: 38,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon),
+              const SizedBox(width: 4),
+              Text(label, style: const TextStyle(fontWeight: FontWeight.w500)),
+            ],
+          ),
         ),
       ),
     );

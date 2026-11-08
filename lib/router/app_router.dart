@@ -1,14 +1,19 @@
+import 'package:flu_app/pages/recentPlay/recent_play_page.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:flu_app/layout/layout.dart';
+
 import 'package:flu_app/pages/home/home_page.dart';
-import 'package:flu_app/pages/layout/layout.dart';
+
 import 'package:flu_app/pages/launch/launch_page.dart';
 import 'package:flu_app/pages/library/library_page.dart';
 import 'package:flu_app/pages/profile/profile_page.dart';
-import 'package:flu_app/pages/profile/subPage/message/message_page.dart';
+import 'package:flu_app/pages/message/message_page.dart';
 import 'package:flu_app/pages/scan/scan_page.dart';
 import 'package:flu_app/pages/video/video_page.dart';
-import 'package:flu_app/pages/profile/subPage/recognize/recognize_page.dart';
+import 'package:flu_app/pages/recognize/recognize_page.dart';
+import 'package:flu_app/pages/setting/app_setting_page.dart';
+
 
 // 全应用统一的路由表，应用启动时先显示启动页。
 final appRouter = GoRouter(
@@ -29,6 +34,16 @@ final appRouter = GoRouter(
     GoRoute(
       path: "/profile/message",
       builder: (context, state) => const MessagePage(),
+    ),
+
+    GoRoute(
+      path: "/profile/recentPlay",
+      builder: (context, state) => const RecentPlayPage(),
+    ),
+
+    GoRoute(
+      path: "/app/setting",
+      builder: (context,state)=> const AppSettingPage(),
     ),
 
     // 底部导航的状态路由壳：每个分支都有独立导航栈，切换 tab 时保留页面状态。

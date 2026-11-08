@@ -45,4 +45,12 @@ abstract final class ProfileDrawerEventKey {
 
   // 我的客服
   static const customerService = "profile:customerService:newPage";
+
+  static const setting = "profile:setting:newPage";
+  static const more = "profile:more:newPage";
+}
+
+abstract final class RouterPath {
+  // 打开扫描二维码页面
+  static const scan = '/profile/scan';
 }

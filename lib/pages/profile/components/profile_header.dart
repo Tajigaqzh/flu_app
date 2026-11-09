@@ -1,6 +1,6 @@
 import 'package:flu_app/common/iconfont_icons.dart';
 import 'package:flu_app/common/math_util.dart';
-import 'package:flu_app/components/action_icon.dart';
+import 'package:flu_app/widgets/action_icon/action_icon.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:material_ui/material_ui.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:easy_refresh/easy_refresh.dart';
-import 'package:flu_app/widgets/navigate_bar.dart';
+import 'package:flu_app/widgets/navigate_bar/navigate_bar.dart';
 import 'package:material_ui/material_ui.dart';
 
 import 'package:flu_app/common/iconfont_icons.dart';

@@ -1,7 +1,7 @@
 import 'package:flu_app/common/tabs.dart';
 import 'package:flu_app/pages/profile/components/profile_header.dart';
 import 'package:flu_app/pages/profile/components/profile_tab.dart';
-import 'package:flu_app/widgets/show_left_detail_drawer.dart';
+import 'package:flu_app/widgets/left_detail_drawer/show_left_detail_drawer.dart';
 import 'package:material_ui/material_ui.dart';
 
 /// 我的 tab 激活页面

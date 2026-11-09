@@ -1,5 +1,5 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:flu_app/widgets/navigate_bar.dart';
+import 'package:flu_app/widgets/navigate_bar/navigate_bar.dart';
 
 class AppSettingPage extends StatefulWidget {
   const AppSettingPage({super.key});

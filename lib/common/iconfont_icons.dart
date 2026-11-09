@@ -2,6 +2,15 @@ import 'package:flutter/widgets.dart';
 
 /// Generated from `assets/fonts/icon/iconfont.json`. Do not edit by hand.
 abstract final class IconfontIcons {
+  /// 搜索
+  static const sousuo1 = IconData(0xe63a, fontFamily: 'iconfont');
+
+  /// vip
+  static const vip = IconData(0xe60b, fontFamily: 'iconfont');
+
+  /// 删除1-L
+  static const shanchu1L = IconData(0xe611, fontFamily: 'iconfont');
+
   /// 云
   static const yun = IconData(0xe639, fontFamily: 'iconfont');
 

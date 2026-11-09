@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "5909834",
+      "name": "搜索",
+      "font_class": "sousuo1",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "14055528",
+      "name": "vip",
+      "font_class": "vip",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "37506026",
+      "name": "删除1-L",
+      "font_class": "shanchu1-L",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
       "icon_id": "1159920",
       "name": "云",
       "font_class": "yun",

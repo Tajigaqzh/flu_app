@@ -58,7 +58,7 @@ class LeftDetailDrawerVipCard extends StatelessWidget {
                   children: [
                     TextButton(
                       onPressed: () =>
-                          onPressed(eventKey: ProfileDrawerEventKey.startVip),
+                          onPressed(eventKey: DrawerEventKey.startVip),
                       style: TextButton.styleFrom(
                         backgroundColor: const Color(0xffF4D99B),
                         foregroundColor: const Color(0xff51432E),
@@ -76,7 +76,7 @@ class LeftDetailDrawerVipCard extends StatelessWidget {
               ],
             ),
             InkWell(
-              onTap: () => onPressed(eventKey: ProfileDrawerEventKey.startVip),
+              onTap: () => onPressed(eventKey: DrawerEventKey.startVip),
               borderRadius: BorderRadius.circular(4),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

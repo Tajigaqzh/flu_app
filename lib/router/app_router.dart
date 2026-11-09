@@ -22,27 +22,27 @@ final appRouter = GoRouter(
     // 启动页通过 context.go('/home') 进入主界面。
     GoRoute(path: '/launch', builder: (context, state) => const LaunchPage()),
     GoRoute(
-      path: '/profile/scan',
+      path: '/drawer/scan',
       builder: (context, state) => const ScanPage(),
     ),
 
     GoRoute(
-      path: "/profile/recognize",
+      path: "/drawer/recognize",
       builder: (context, state) => const RecognizePage(),
     ),
 
     GoRoute(
-      path: "/profile/message",
+      path: "/drawer/message",
       builder: (context, state) => const MessagePage(),
     ),
 
     GoRoute(
-      path: "/profile/recentPlay",
+      path: "/drawer/recentPlay",
       builder: (context, state) => const RecentPlayPage(),
     ),
 
     GoRoute(
-      path: "/app/setting",
+      path: "/drawer/setting",
       builder: (context,state)=> const AppSettingPage(),
     ),
 

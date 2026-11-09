@@ -71,8 +71,8 @@ void main() {
     await tester.tap(find.text('续费'));
 
     expect(eventKeys, [
-      ProfileDrawerEventKey.startVip,
-      ProfileDrawerEventKey.startVip,
+      DrawerEventKey.startVip,
+      DrawerEventKey.startVip,
     ]);
   });
 

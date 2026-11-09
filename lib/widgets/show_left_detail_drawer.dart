@@ -15,19 +15,19 @@ Future<void> showLeftDetailDrawer(BuildContext context, [AppTabEnum? appTab]) {
     Navigator.of(context, rootNavigator: true).pop();
 
     switch (eventKey) {
-      case ProfileDrawerEventKey.recognize:
-        context.push('/profile/recognize', extra: eventParams);
+      case DrawerEventKey.recognize:
+        context.push('/drawer/recognize', extra: eventParams);
         break;
-      case ProfileDrawerEventKey.scan:
-        context.push('/profile/scan', extra: eventParams);
+      case DrawerEventKey.scan:
+        context.push('/drawer/scan', extra: eventParams);
         break;
-      case ProfileDrawerEventKey.myMessage:
-        context.push('/profile/message');
+      case DrawerEventKey.myMessage:
+        context.push('/drawer/message');
         break;
-      case ProfileDrawerEventKey.recentPlay:
-        context.push('/profile/recentPlay');
+      case DrawerEventKey.recentPlay:
+        context.push('/drawer/recentPlay');
         break;
-      case ProfileDrawerEventKey.startVip:
+      case DrawerEventKey.startVip:
         break;
     }
   }

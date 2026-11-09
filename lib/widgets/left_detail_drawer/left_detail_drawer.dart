@@ -60,7 +60,7 @@ class LeftDetailDrawer extends StatelessWidget {
                           children: [
                             IconButton(
                               onPressed: () => onPressed(
-                                eventKey: ProfileDrawerEventKey.recognize,
+                                eventKey: DrawerEventKey.recognize,
                               ),
                               tooltip: '语音',
                               padding: const EdgeInsets.all(0),
@@ -80,7 +80,7 @@ class LeftDetailDrawer extends StatelessWidget {
                             const SizedBox(width: 10),
                             IconButton(
                               onPressed: () => onPressed(
-                                eventKey: ProfileDrawerEventKey.scan,
+                                eventKey: DrawerEventKey.scan,
                               ),
                               tooltip: '扫描',
                               padding: const EdgeInsets.all(0),
@@ -121,7 +121,7 @@ class LeftDetailDrawer extends StatelessWidget {
                             icon: Icons.settings,
                             label: '设置',
                             onPressed: () => onPressed(
-                              eventKey: ProfileDrawerEventKey.setting,
+                              eventKey: DrawerEventKey.setting,
                             ),
                           ),
                           const Expanded(flex: 8, child: SizedBox()),
@@ -129,7 +129,7 @@ class LeftDetailDrawer extends StatelessWidget {
                             icon: Icons.sports_esports_outlined,
                             label: '更多',
                             onPressed: () =>
-                                onPressed(eventKey: ProfileDrawerEventKey.more),
+                                onPressed(eventKey: DrawerEventKey.more),
                           ),
                         ],
                       ),

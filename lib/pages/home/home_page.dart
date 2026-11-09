@@ -9,8 +9,8 @@ class HomePage extends StatelessWidget {
     return ListView(
       key: const PageStorageKey('home-tab'),
       padding: const EdgeInsets.fromLTRB(24, 30, 24, 112),
-      children: [
-        const Text(
+      children: const [
+        Text(
           'hpMusic',
           style: TextStyle(
             color: Color(0xFF202027),
@@ -18,22 +18,13 @@ class HomePage extends StatelessWidget {
             fontWeight: FontWeight.w700,
           ),
         ),
-        const SizedBox(height: 8),
-        const Text(
+        SizedBox(height: 8),
+        Text(
           '让喜欢的音乐，随时相伴',
           style: TextStyle(color: Color(0xFF777781), fontSize: 15),
         ),
-        const SizedBox(height: 32),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Image.asset(
-            'assets/images/launch/1.png',
-            height: 260,
-            fit: BoxFit.contain,
-          ),
-        ),
-        const SizedBox(height: 26),
-        const Text(
+        SizedBox(height: 32),
+        Text(
           '最近播放',
           style: TextStyle(
             color: Color(0xFF202027),
@@ -41,8 +32,8 @@ class HomePage extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        const SizedBox(height: 12),
-        const Text(
+        SizedBox(height: 12),
+        Text(
           '播放过的歌曲会出现在这里',
           style: TextStyle(color: Color(0xFF85858E), fontSize: 14),
         ),

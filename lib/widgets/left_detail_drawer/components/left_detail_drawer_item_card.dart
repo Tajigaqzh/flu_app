@@ -27,7 +27,7 @@ class LeftDetailDrawerItemCard extends StatelessWidget {
               withBorder: true,
               rightContent: _RightContent.button,
               onPressed: () {
-                onPressed(eventKey: ProfileDrawerEventKey.tryVipMusic);
+                onPressed(eventKey: DrawerEventKey.tryVipMusic);
               },
             ),
 
@@ -37,7 +37,7 @@ class LeftDetailDrawerItemCard extends StatelessWidget {
               rightText: "12",
               rightContent: _RightContent.toolkit,
               onPressed: () {
-                onPressed(eventKey: ProfileDrawerEventKey.myMessage);
+                onPressed(eventKey: DrawerEventKey.myMessage);
               },
             ),
 
@@ -47,7 +47,7 @@ class LeftDetailDrawerItemCard extends StatelessWidget {
               rightText: "免费兑换黑胶VIP",
               rightContent: _RightContent.text,
               onPressed: () {
-                onPressed(eventKey: ProfileDrawerEventKey.myClaud);
+                onPressed(eventKey: DrawerEventKey.myClaud);
               },
             ),
 
@@ -57,7 +57,7 @@ class LeftDetailDrawerItemCard extends StatelessWidget {
               rightText: "罗小黑装扮上新",
               rightContent: _RightContent.text,
               onPressed: () {
-                onPressed(eventKey: ProfileDrawerEventKey.skin);
+                onPressed(eventKey: DrawerEventKey.skin);
               },
             ),
             _DrawerSettingItem(
@@ -67,7 +67,7 @@ class LeftDetailDrawerItemCard extends StatelessWidget {
               rightText: "",
               rightContent: _RightContent.none,
               onPressed: () {
-                onPressed(eventKey: ProfileDrawerEventKey.creator);
+                onPressed(eventKey: DrawerEventKey.creator);
               },
             ),
 
@@ -77,7 +77,7 @@ class LeftDetailDrawerItemCard extends StatelessWidget {
               rightText: "4台设备登录",
               rightContent: _RightContent.text,
               onPressed: () {
-                onPressed(eventKey: ProfileDrawerEventKey.recentPlay);
+                onPressed(eventKey: DrawerEventKey.recentPlay);
               },
             ),
 
@@ -88,7 +88,7 @@ class LeftDetailDrawerItemCard extends StatelessWidget {
               withBorder: true,
               rightContent: _RightContent.none,
               onPressed: () {
-                onPressed(eventKey: ProfileDrawerEventKey.regularClosed);
+                onPressed(eventKey: DrawerEventKey.regularClosed);
               },
             ),
 
@@ -98,7 +98,7 @@ class LeftDetailDrawerItemCard extends StatelessWidget {
               rightText: "",
               rightContent: _RightContent.none,
               onPressed: () {
-                onPressed(eventKey: ProfileDrawerEventKey.store);
+                onPressed(eventKey: DrawerEventKey.store);
               },
             ),
 
@@ -108,7 +108,7 @@ class LeftDetailDrawerItemCard extends StatelessWidget {
               rightText: "",
               rightContent: _RightContent.none,
               onPressed: () {
-                onPressed(eventKey: ProfileDrawerEventKey.ticket);
+                onPressed(eventKey: DrawerEventKey.ticket);
               },
             ),
 
@@ -118,7 +118,7 @@ class LeftDetailDrawerItemCard extends StatelessWidget {
               rightText: "",
               rightContent: _RightContent.none,
               onPressed: () {
-                onPressed(eventKey: ProfileDrawerEventKey.suggestionMusic);
+                onPressed(eventKey: DrawerEventKey.suggestionMusic);
               },
             ),
 
@@ -128,7 +128,7 @@ class LeftDetailDrawerItemCard extends StatelessWidget {
               rightText: "",
               rightContent: _RightContent.none,
               onPressed: () {
-                onPressed(eventKey: ProfileDrawerEventKey.customerService);
+                onPressed(eventKey: DrawerEventKey.customerService);
               },
             ),
           ],

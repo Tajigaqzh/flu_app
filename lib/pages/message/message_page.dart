@@ -1,8 +1,10 @@
 import 'dart:math' as math;
 
 import 'package:easy_refresh/easy_refresh.dart';
-import 'package:material_ui/material_ui.dart';
 import 'package:flu_app/widgets/navigate_bar.dart';
+import 'package:material_ui/material_ui.dart';
+
+import 'package:flu_app/common/iconfont_icons.dart';
 
 class MessagePage extends StatefulWidget {
   const MessagePage({super.key});
@@ -20,11 +22,22 @@ class _MessagePageState extends State<MessagePage> {
         title: "我的消息",
         trailing: [
           GestureDetector(
-            child: const Icon(Icons.search, size: 25),
+            child: const Icon(
+              IconfontIcons.sousuo1,
+              size: 22,
+              color: Colors.black,
+            ),
             onTap: () {},
           ),
-          const SizedBox(width: 10),
-          const Icon(Icons.cleaning_services_rounded, size: 22),
+          const SizedBox(width: 12),
+          GestureDetector(
+            child: const Icon(
+                IconfontIcons.shanchu1L, size: 22, color: Colors.black),
+            onTap: () {
+
+            },
+          )
+
         ],
         child: EasyRefresh(
           header: const ClassicHeader(
